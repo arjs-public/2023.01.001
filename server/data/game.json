@@ -1,0 +1,23 @@
+{
+  "game": {
+    "event": "",
+    "home": "muc",
+    "guest": "tz2",
+    "scoreH": 0,
+    "scoreG": 0,
+    "state": "-",
+    "toH": 3,
+    "toG": 3,
+    "period": "-",
+    "down": "",
+    "on": "",
+    "secs": 0,
+    "clock": "",
+    "count": 0,
+    "play": 40,
+    "ball": "",
+    "penalty": false,
+    "flag": "FLAG",
+    "visible": false
+  }
+}

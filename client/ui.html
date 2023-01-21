@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <link rel="stylesheet" href="style.css">
+    <style> body {padding: 0; margin: 0; overflow: hidden;} </style>
+    <script src="libs/p5.min.js"></script>
+    <script src="libs/state-machine.js" charset="utf-8"></script>
+    <script src="ui.js"></script>
+  </head>
+  <body>
+
+    <div class="parent">
+      <header class="section grey" id="header">
+        <form id="periods">
+          <div class="radio-group">
+            <input type="radio" id="period-zero" name="periods" checked><label for="period-zero">INIT</label>
+            <input type="radio" id="period-one" name="periods"><label for="period-one">Pregame</label>
+            <input type="radio" id="period-two" name="periods"><label for="period-two">1st Quarter</label>
+            <input type="radio" id="period-three" name="periods"><label for="period-three">2nd Quarter</label>
+            <input type="radio" id="period-four" name="periods"><label for="period-four">Halftime</label>
+            <input type="radio" id="period-five" name="periods"><label for="period-five">3rd Quarter</label>
+            <input type="radio" id="period-six" name="periods"><label for="period-six">4th Quarter</label>
+            <input type="radio" id="period-seven" name="periods"><label for="period-seven">Overtime</label>
+            <input type="radio" id="period-eight" name="periods"><label for="period-eight">Final</label>
+          </div>  
+        </form>
+      </header>
+      <div class="left-side section grey" id="home">
+        <div class="container">
+          <div class="title-container">
+            <img src="assets/team-mc.png" style="width: 90px; height: 90px;">
+            <span class="texttitle fg_blue">MUC</span>
+            <div class="seg2-container">
+              <div class='s7s'>
+                <input value='0' hidden id="scoreH1"/> <!-- value of the segment -->
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+              </div>                
+              <div class='s7s'>
+                <input value='0' hidden id="scoreH2"/> <!-- value of the segment -->
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+              </div>                
+            </div>  
+          </div>
+        </div>
+        <div class="btn-container">
+          <div class="rect shape blue disabled" id="HTD">
+            <span class="text">Touch Down</span>
+          </div>
+          <div class="rect shape blue disabled" id="HFG">
+            <span class="text">Field Goal</span>
+          </div>
+          <div class="rect shape blue disabled" id="HSY">
+            <span class="text">Safety</span>
+          </div>
+        </div>
+        <div class="btn-container">
+          <div class="rect shape blue disabled" id="HPT">
+            <span class="text">PAT</span>
+          </div>
+          <div class="rect shape blue disabled" id="HNG">
+            <span class="text">No Good</span>
+          </div>
+          <div class="rect shape blue disabled" id="H2P">
+            <span class="text">2 Pt Try</span>
+          </div>
+        </div>
+        <div class="container">
+          <ul class="ks-cboxtags">
+            <li><input type="checkbox" id="Hto1" value="true" checked disabled><label for="Hto1">Timeout #1</label></li>
+            <li><input type="checkbox" id="Hto2" value="true" checked disabled><label for="Hto2">Timeout #2</label></li>
+            <li><input type="checkbox" id="Hto3" value="true" checked disabled><label for="Hto3">Timeout #3</label></li>
+          </ul>
+        </div>        
+      </div>
+      <main class="section grey" id="main">
+        <div class="container">
+          <form id="balls">
+            <div id="ballSelect" class="radio-group">
+              <input type="radio" id="option-home" name="balls" disabled><label for="option-home">Home</label>
+              <input type="radio" id="option-none" name="balls" disabled><label for="option-none">BALL</label>
+              <input type="radio" id="option-guest" name="balls" disabled><label for="option-guest">Guest</label>
+            </div>  
+          </form>
+        </div>
+        <div class="btn-container">
+          <div class="rect shape yellow disabled" id="flag" aria-checked="false">
+            <span class="circleGrey">●</span><span class="text">&nbsp;&nbsp;&nbsp;FLAG</span><span class="counter"></span>
+          </div>
+          <div class="rect shape green disabled" id="active" aria-checked="false">
+            <span class="circleGrey">●</span><span class="text">&nbsp;ACTIVE</span>
+          </div>
+          <div class="rect shape white disabled" id="referee" aria-checked="flase">
+            <span class="circleGrey">●</span><span class="text">&nbsp;&nbsp;&nbsp;REFEREE</span><span class="counter"></span>
+          </div>
+        </div>
+        <div class="container">
+          <div class="seg-container">
+            <div class='s7s'>
+              <input value='0' hidden id="timeN1"/> <!-- value of the segment -->
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+            </div>                
+            <div class='s7s'>
+              <input value='0' hidden id="timeN2"/> <!-- value of the segment -->
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+            </div>                
+            <div class='s7s'>
+              <input value='0' hidden id="timeN3"/> <!-- value of the segment -->
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+            </div>                
+            <div class='s7s'>
+              <input value='0' hidden id="timeN4"/> <!-- value of the segment -->
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+              <seg></seg>
+            </div>                
+          </div>  
+        </div>
+        <div class="btn-container">
+          <div class="rect shape green disabled" id="clock">
+            <span class="text" id="label-clock">START</span>
+          </div>
+        </div>
+      </main>
+      <div class="right-side section grey" id="guest">
+        <div class="container">
+          <div class="title-container">
+            <img src="assets/team-02.png" style="width: 90px; height: 90px;">
+            <span class="texttitle fg_red">SHU</span>
+            <div class="seg2-container">
+              <div class='s7s'>
+                <input value='0' hidden id="scoreG1"/> <!-- value of the segment -->
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+              </div>                
+              <div class='s7s'>
+                <input value='0' hidden id="scoreG2"/> <!-- value of the segment -->
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+                <seg></seg>
+              </div>                
+            </div>    
+          </div>
+        </div>
+        <div class="btn-container">
+          <div class="rect shape red disabled" id="GTD">
+            <span class="text">Touch Down</span>
+          </div>
+          <div class="rect shape red disabled" id="GFG">
+            <span class="text">Field Goal</span>
+          </div>
+          <div class="rect shape red disabled" id="GSY">
+            <span class="text">Safety</span>
+          </div>
+        </div>
+        <div class="btn-container">
+          <div class="rect shape red disabled" id="GPT">
+            <span class="text">PAT</span>
+          </div>
+          <div class="rect shape red disabled" id="GNG">
+            <span class="text">No Good</span>
+          </div>
+          <div class="rect shape red disabled" id="G2P">
+            <span class="text">2 Pt Try</span>
+          </div>
+        </div>        
+        <div class="container">
+          <ul class="ks-cboxtags">
+            <li><input type="checkbox" id="Gto1" value="true" checked disabled><label for="Gto1">Timeout #1</label></li>
+            <li><input type="checkbox" id="Gto2" value="true" checked disabled><label for="Gto2">Timeout #2</label></li>
+            <li><input type="checkbox" id="Gto3" value="true" checked disabled><label for="Gto3">Timeout #3</label></li>
+          </ul>
+        </div>
+      </div>
+      <footer class="section grey" id="footer">
+        <div class="container hidden" id="block-ballonside">
+          <div class="container">
+            <form>
+              <div class="radio-group">
+                <input type="radio" id="option-hside" name="ballonside"><label for="option-hside" style="padding: 5px 18px;">&lt;</label>
+                <input type="radio" id="option-noside" name="ballonside" checked><label id="label-noside" for="option-noside" style="padding: 5px 10px;">BALL ON</label>
+                <input type="radio" id="option-gside" name="ballonside"><label for="option-gside" style="padding: 5px 18px;">&gt;</label>
+              </div>
+            </form>  
+          </div>
+          <div class="container">
+            <div class="on-container" id="BallOnKeys">
+              <div class="numkey shape disabled" id="BOK7">
+                <span class="textnum">7</span>
+              </div>
+              <div class="numkey shape disabled" id="BOK8">
+                <span class="textnum">8</span>
+              </div>
+              <div class="numkey shape disabled" id="BOK9">
+                <span class="textnum">9</span>
+              </div>          
+              <div class="numkey shape disabled" id="BOK20">
+                <span class="textpre">20</span>
+              </div>          
+              <div class="numkey shape disabled" id="BOK4">
+                <span class="textnum">4</span>
+              </div>
+              <div class="numkey shape disabled" id="BOK5">
+                <span class="textnum">5</span>
+              </div>
+              <div class="numkey shape disabled" id="BOK6">
+                <span class="textnum">6</span>
+              </div>          
+              <div class="numkey shape disabled" id="BOK25">
+                <span class="textpre">25</span>
+              </div>          
+              <div class="numkey shape disabled" id="BOK1">
+                <span class="textnum">1</span>
+              </div>
+              <div class="numkey shape disabled" id="BOK2">
+                <span class="textnum">2</span>
+              </div>
+              <div class="numkey shape disabled" id="BOK3">
+                <span class="textnum">3</span>
+              </div>          
+              <div class="numkey shape disabled" id="BOK35">
+                <span class="textpre">35</span>
+              </div>          
+              <div class="numkey shape white" id="BOKC">
+                <span class="textnum">C</span>
+              </div>
+              <div class="numkey shape disabled" id="BOK0">
+                <span class="textnum">0</span>
+              </div>
+              <div class="numkey shape disabled" id="BOKSet">
+                <span class="textnum">Set</span>
+              </div>          
+              <div class="numkey shape disabled" id="BOK40">
+                <span class="textpre">40</span>
+              </div>          
+            </div>  
+          </div>  
+        </div>
+        <div class="container hidden" id="block-time">
+          <div class="container">
+            <form>
+              <div class="radio-group">
+                <input type="radio" id="option-time" name="time" checked><label id="label-time" for="option-time">TIME</label>
+              </div>  
+            </form>  
+          </div>
+          <div class="container">
+            <div class="num-container" id="TimerKeys">
+              <div class="numkey shape green" id="TK7">
+                <span class="textnum">7</span>
+              </div>
+              <div class="numkey shape green" id="TK8">
+                <span class="textnum">8</span>
+              </div>
+              <div class="numkey shape green" id="TK9">
+                <span class="textnum">9</span>
+              </div>          
+              <div class="numkey shape green" id="TK4">
+                <span class="textnum">4</span>
+              </div>
+              <div class="numkey shape green" id="TK5">
+                <span class="textnum">5</span>
+              </div>
+              <div class="numkey shape green" id="TK6">
+                <span class="textnum">6</span>
+              </div>          
+              <div class="numkey shape green" id="TK1">
+                <span class="textnum">1</span>
+              </div>
+              <div class="numkey shape green" id="TK2">
+                <span class="textnum">2</span>
+              </div>
+              <div class="numkey shape green" id="TK3">
+                <span class="textnum">3</span>
+              </div>          
+              <div class="numkey shape white" id="TKR">
+                <span class="textnum">R</span>
+              </div>
+              <div class="numkey shape green" id="TK0">
+                <span class="textnum">0</span>
+              </div>
+              <div class="numkey shape disabled" id="TKSet">
+                <span class="textnum">Set</span>
+              </div>          
+            </div>  
+          </div>  
+        </div>
+        <div class="container hidden" id="block-score">
+          <div class="container">
+            <form>
+              <div class="radio-group">
+                <input type="radio" id="option-hscore" name="score"><label for="option-hscore" style="padding: 5px 10px;">Home</label>
+                <input type="radio" id="option-score" name="score" checked><label id="label-score" for="option-score" style="padding: 5px 5px;">SCORE</label>
+                <input type="radio" id="option-gscore" name="score"><label for="option-gscore" style="padding: 5px 10px;">Guest</label>
+              </div>  
+            </form>  
+          </div>
+          <div class="container">
+            <div class="num-container" id="ScoreKeys">
+              <div class="numkey shape disabled" id="SK7">
+                <span class="textnum">7</span>
+              </div>
+              <div class="numkey shape disabled" id="SK8">
+                <span class="textnum">8</span>
+              </div>
+              <div class="numkey shape disabled" id="SK9">
+                <span class="textnum">9</span>
+              </div>          
+              <div class="numkey shape disabled" id="SK4">
+                <span class="textnum">4</span>
+              </div>
+              <div class="numkey shape disabled" id="SK5">
+                <span class="textnum">5</span>
+              </div>
+              <div class="numkey shape disabled" id="SK6">
+                <span class="textnum">6</span>
+              </div>          
+              <div class="numkey shape disabled" id="SK1">
+                <span class="textnum">1</span>
+              </div>
+              <div class="numkey shape disabled" id="SK2">
+                <span class="textnum">2</span>
+              </div>
+              <div class="numkey shape disabled" id="SK3">
+                <span class="textnum">3</span>
+              </div>          
+              <div class="numkey shape white" id="SKC">
+                <span class="textnum">C</span>
+              </div>
+              <div class="numkey shape disabled" id="SK0">
+                <span class="textnum">0</span>
+              </div>
+              <div class="numkey shape disabled" id="SKSet">
+                <span class="textnum">Set</span>
+              </div>          
+            </div>  
+          </div>  
+        </div>
+        <div class="container hidden" id="block-down">
+          <div class="container">
+            <form>
+              <div class="radio-group">
+                <input type="radio" id="option-1st" name="down"><label for="option-1st" style="padding: 5px 8px;">1st</label>
+                <input type="radio" id="option-2nd" name="down"><label for="option-2nd" style="padding: 5px 5px;">2nd</label>
+                <input type="radio" id="option-3rd" name="down"><label for="option-3rd" style="padding: 5px 10px;">3rd</label>
+                <input type="radio" id="option-4th" name="down"><label for="option-4th" style="padding: 5px 8px;">4th</label>
+                <input type="radio" id="option-down" name="down" checked disabled><label id="label-down" for="option-down" style="padding: 5px 20px;">DOWN</label>
+              </div>  
+            </form>  
+          </div>
+          <div class="container">
+            <div class="yrd-container" id="DownKeys">
+              <div class="numkey shape disabled" id="DK7">
+                <span class="textnum">7</span>
+              </div>
+              <div class="numkey shape disabled" id="DK8">
+                <span class="textnum">8</span>
+              </div>
+              <div class="numkey shape disabled" id="DK9">
+                <span class="textnum">9</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKIn">
+                <span class="textnum">IN</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKGl">
+                <span class="textnum">GL</span>
+              </div>          
+              <div class="numkey shape disabled" id="DK4">
+                <span class="textnum">4</span>
+              </div>
+              <div class="numkey shape disabled" id="DK5">
+                <span class="textnum">5</span>
+              </div>
+              <div class="numkey shape disabled" id="DK6">
+                <span class="textnum">6</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKp1">
+                <span class="textnum">+1</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKm1">
+                <span class="textnum">-1</span>
+              </div>          
+              <div class="numkey shape disabled" id="DK1">
+                <span class="textnum">1</span>
+              </div>
+              <div class="numkey shape disabled" id="DK2">
+                <span class="textnum">2</span>
+              </div>
+              <div class="numkey shape disabled" id="DK3">
+                <span class="textnum">3</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKp5">
+                <span class="textnum">+5</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKm5">
+                <span class="textnum">-5</span>
+              </div>          
+              <div class="numkey shape white" id="DKC">
+                <span class="textnum">C</span>
+              </div>
+              <div class="numkey shape disabled" id="DK0">
+                <span class="textnum">0</span>
+              </div>
+              <div class="numkey shape disabled" id="DKSet">
+                <span class="textnum">Set</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKpA"> <!-- style="grid-column-end: span 2;" -->
+                <span class="textnumsmaller">+10</span>
+              </div>          
+              <div class="numkey shape disabled" id="DKmA"> <!-- style="grid-column-end: span 2;" -->
+                <span class="textnumsmaller">-10</span>
+              </div>          
+            </div>  
+          </div>  
+        </div>
+      </footer>
+    </div>
+
+  </body>
+</html>

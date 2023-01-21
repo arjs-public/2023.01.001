@@ -1,0 +1,82 @@
+{
+    "muc": {
+        "name": "Crushers",
+        "long": "Munich Crushers",
+        "short": "MUC",
+        "primary": "black",
+        "secondary": "yellow",
+        "accent": "white",
+        "logo": "team-mc.png",
+        "division": "south"
+    },
+    "tz2": {
+        "name": "Zero 2",
+        "long": "City Team Zero 2",
+        "short": "CT2",
+        "primary": "red",
+        "secondary": "white",
+        "accent": "black",
+        "logo": "team-02.png",
+        "division": "south"
+    },
+    "tz3": {
+        "name": "Zero 3",
+        "long": "City Team Zero 3",
+        "short": "CT3",
+        "primary": "red",
+        "secondary": "white",
+        "accent": "black",
+        "logo": "team-03.png",
+        "division": "south"
+    },
+    "tz4": {
+        "name": "Zero 4",
+        "long": "City Team Zero 4",
+        "short": "CT4",
+        "primary": "red",
+        "secondary": "white",
+        "accent": "black",
+        "logo": "team-04.png",
+        "division": "south"
+    },
+    "tz5": {
+        "name": "Zero 5",
+        "long": "City Team Zero 5",
+        "short": "CT5",
+        "primary": "red",
+        "secondary": "white",
+        "accent": "black",
+        "logo": "team-05.png",
+        "division": "south"
+    },
+    "tz6": {
+        "name": "Zero 6",
+        "long": "City Team Zero 6",
+        "short": "CT6",
+        "primary": "red",
+        "secondary": "white",
+        "accent": "black",
+        "logo": "team-06.png",
+        "division": "south"
+    },
+    "tz7": {
+        "name": "Zero 7",
+        "long": "City Team Zero 7",
+        "short": "CT7",
+        "primary": "red",
+        "secondary": "white",
+        "accent": "black",
+        "logo": "team-07.png",
+        "division": "south"
+    },
+    "tz8": {
+        "name": "Zero 8",
+        "long": "City Team Zero 8",
+        "short": "CT8",
+        "primary": "red",
+        "secondary": "white",
+        "accent": "black",
+        "logo": "team-08.png",
+        "division": "south"
+    }
+}

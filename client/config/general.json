@@ -1,0 +1,58 @@
+{
+    "general": {
+        "showFade": false,
+        "chromaKey": "green",
+        "seconds": 720,
+        "timeouts": 3,
+        "extraYards": ["in", "Goal"],
+        "sideMarker": ["◃", "▹"],
+        "periods": ["Pre", "1st", "2nd", "Half", "3rd", "4th", "OT", "Final"],
+        "images": {
+            "bg": "football-blue.png",
+            "dark": "football-black.png",
+            "light": "football-white.png",
+            "league": "logo-roflg.png",
+            "pregame": "pregame.png",
+            "touchdown": "touchdown.png",
+            "fieldgoal": "fieldgoal.png",
+            "try": "2pt-try.png",
+            "nogood": "nogood.png",
+            "safety": "safety.png",
+            "pat": "pat.png",
+            "timeout": "timeout.png",
+            "halftime": "halftime.png",
+            "final": "final.png",
+            "eoq": "eoq.png"
+        },
+        "bannerOffsets": {
+            "TD": 0,
+            "FG": 0,
+            "PAT": 25,
+            "Try": 15,
+            "NG": 15,
+            "Safety": 15,
+            "Timeout": 15,
+            "halftime": -75
+        }
+    },
+    "game": {
+        "event": "",
+        "home": "muc",
+        "guest": "tz2",
+        "scoreH": 0,
+        "scoreG": 0,
+        "toH": 3,
+        "toG": 3,
+        "period": "-",
+        "down": "",
+        "on": "",
+        "count": 0,
+        "secs": 0,
+        "clock": "",
+        "play": 40,
+        "ball": "",
+        "penalty": false,
+        "flag": "",
+        "visible": false
+    }
+}

@@ -1,0 +1,58 @@
+{
+  "empty": {
+    "graphic": null,
+    "x": 0,
+    "y": 0,
+    "width": null,
+    "height": null,
+    "clear": true,
+    "bg": null,
+    "fg": null,
+    "fade": 0,
+    "frames": 5,
+    "visible": false,
+    "items": []
+  }, 
+  "scoreboard": {
+    "graphic": null,
+    "x": 0,
+    "y": 0,
+    "width": 1000,
+    "height": 65,
+    "timeoutH": 15,
+    "clear": true,
+    "bg": "darkblue",
+    "fg": "white",
+    "fade": 0,
+    "frames": 10,
+    "visible": false,
+    "items": ["logo", "home", "scoreH", "guest", "scoreG", "period", "clock", "down", "on"]
+  },
+  "flag": {
+    "graphic": null,
+    "x": 0,
+    "y": 0,
+    "width": 290,
+    "height": 50,
+    "clear": false,
+    "bg": "yellow",
+    "fg": "black",
+    "fade": -1,
+    "frames": -1,
+    "visible": false,
+    "items": ["flag"]
+  },
+  "referee": {
+    "graphic": null,
+    "x": 0,
+    "y": 0,
+    "width": 290,
+    "height": 50,
+    "clear": false,
+    "bg": "white",
+    "fg": "black",
+    "fade": -1,
+    "frames": -1,
+    "visible": false,
+    "items": ["referee"]
+  }}  
